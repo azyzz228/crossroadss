@@ -1,0 +1,145 @@
+{% extends 'gigs/base.html' %}
+{% load static %}
+{% block title %}Homepage.{% endblock title %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="w-full bg-slate-50">
+    <div class="container flex flex-col gap-20 md:flex-row justify-between items-center py-24 px-4 ">
+        <!-- TEXT / TITLE / CTA -->
+        <div class="w-full md:w-5/12">
+            <h3 class="text-lg font-bold text-sky-900 mb-5 class" data="test" onclick="copyContent(event) ">The new way
+                to find
+                talents
+            </h3>
+            <h1 class="font-manrope text-5xl md:text-6xl text-slate-800 mb-6 class">Find. Collaborate.<br /> Create.
+            </h1>
+            <p class="font-roboto text-lg text-slate-700 mb-16">Here you can find talented and skilled students from
+                Duke. You
+                can also get listed by submitting your
+                application.</p>
+            <div class="flex flex-row justify-start items-center gap-6">
+                <a href="{% url 'gigs-page' %}"  class="btn btn-primary">Find talent</a>
+                <a href="{% url 'form-page' %}"  class="btn btn-sec">Submit application</a>
+            </div>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="w-full md:w-5/12  relative">
+            <img src="{% static 'images/hero.png' %}" alt="">
+            <img src="{% static 'images/hero-ui-element.png' %}" alt="" class=" w-[320px]  -bottom-12 left-8 absolute">
+        </div>
+    </div>
+</div>
+
+
+<!-- Features section -->
+
+<div class="container bg-white py-20 px-4  ">
+    <h3 class="text-lg font-bold text-sky-900 mb-5">The new way to find talents</h3>
+    <h2 class="h2-title mb-16">Easily find skilled within community</h2>
+
+    <div
+        class="flex flex-col items-start gap-20 md:flex-row justify-between md:items-center md:gap-5 font-opensans text-lg text-slate-800">
+
+        <div class="flex flex-col justify-center items-start gap-8">
+            <p class="flex flex-row justify-start items-center gap-5">
+                <img src="{% static 'images/icons/web.png' %}" alt="">
+                Web developer
+            </p>
+            <div style="height: 1px;" class=" min-w-[200px] bg-slate-300"></div>
+            <p class="flex flex-row justify-start items-center gap-5">
+                <img src="{% static 'images/icons/music.png' %}" alt="">
+                Music
+            </p>
+        </div>
+
+        <div class="flex flex-col justify-center items-start gap-8">
+            <p class="flex flex-row justify-start items-center gap-5">
+                <img src="{% static 'images/icons/design.png' %}" alt="">
+                Graphic Designer
+            </p>
+            <div style="height: 1px;" class="min-w-[200px] bg-slate-300"></div>
+            <p class="flex flex-row justify-start items-center gap-5">
+                <img src="{% static 'images/icons/sales.png' %}" alt="">
+                Sales &amp; Marketing
+            </p>
+        </div>
+
+        <div class="flex flex-col justify-center items-start gap-8">
+            <p class="flex flex-row justify-start items-center gap-5">
+                <img src="{% static 'images/icons/photo.png' %}" alt="">
+                Photographer / editor
+            </p>
+            <div style="height: 1px;" class="min-w-[200px] bg-slate-300"></div>
+            <p class="flex flex-row justify-start items-center gap-5">
+                <img src="{% static 'images/icons/video.png' %}" alt="">
+                Videographer / editor
+            </p>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<!-- EXPLANATION SECTION -->
+<div class="">
+    <div class="container py-24 px-12">
+        <h2 class="h2-title text-center mb-24">Got a skill? Here is how you can join us.</h2>
+
+        <div class="flex flex-col md:flex-row gap-16 md:gap-0 justify-between items-center relative">
+            <img src="{% static 'images/connector.png' %}" alt=""
+                class="hidden md:block absolute top-12 w-full px-20 -z-10 mx-auto ">
+
+            <div class="flex flex-col justify-start items-center px-5 ">
+                <img src="{% static 'images/form-bubble.png' %}" alt="" class="mb-4">
+                <h3 class="text-lg font-bold font-opensans">Fill up the form</h3>
+                <p class=" text-slate-700 text-base font-opensans text-center">It will take you less than a minute to
+                    fill in details about your skills!</p>
+            </div>
+
+            <div class="flex flex-col justify-start items-center px-5">
+                <img src="{% static 'images/form-submitted.png' %}" alt="" class="mb-10">
+                <h3 class="text-lg font-bold font-opensans">We will review it.</h3>
+                <p class="text-slate-700 text-base font-opensans text-center">Once you have submitted, we will check if
+                    your gig is real and you are not a bot</p>
+            </div>
+
+            <div class="flex flex-col justify-start items-center px-5">
+                <img src="{% static 'images/form-approved.png' %}" alt="" class="mb-5">
+                <h3 class="text-lg font-bold font-opensans">Voilà! Your gig is added</h3>
+                <p class="text-slate-700 text-base font-opensans text-center">
+                    Your gig visible to the world and are open to collaboration
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Contact us page -->
+<div class=" p-8 md:p-20" style="background-color: #082333;">
+    <div
+        class="container bg-white flex flex-col md:flex-row justify-center items-center py-16 px-12 rounded-3xl gap-10">
+        <h2 class="h2-title class md:w-5/12">Have a question? Do not  hesitate to shoot us email</h2>
+
+        <div class="flex flex-col justify-center items-start gap-8">
+            <p class="flex flex-row justify-center items-center gap-4 text-lg text-slate-700">
+                <img src="{% static 'images/icons/tick.png' %}" alt="">
+                as1036@duke.edu (Aziz Abdullaev)
+            </p>
+
+            <p class="flex flex-row justify-center items-center gap-4 text-lg text-slate-700">
+                <img src="{% static 'images/icons/tick.png' %}" alt="">
+                mbg34@duke.edu (Michael Getaneh)
+            </p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

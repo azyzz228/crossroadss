@@ -1,0 +1,7 @@
+Using npm go to tailwind file and run the command:
+
+Add custom classes to input.css file. Main css is production ready file
+npx tailwindcss -i ./src/input.css -o ../static/css/main.css --watch
+
+Write all installed dependencies using followind command in platform/ 
+pip freeze > requirements.txt 

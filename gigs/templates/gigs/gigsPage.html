@@ -1,0 +1,150 @@
+{% extends 'gigs/base.html' %}
+{% load static %}
+
+{% block title %}Find a talent here.{% endblock title %}
+{% block content %}
+
+
+<div class="fixed top-0 left-0 w-full p-4 flex flex-row-reverse justify-between items-center bg-sky-800 ">
+  <a href="{% url 'form-page' %}">
+  <div class="btn btn-sec flex flex-row justify-center gap-2 items-center py-2 px-4 text-slate-900 cursor-pointer">
+    <p class="text-sm">submit your own gig</p>
+    <i class="fa-solid fa-chevron-right text-slate-600"></i>
+  </div>
+</a>
+
+<a href="{% url 'home' %}">
+  <div class="flex flex-row-reverse justify-center gap-2 items-center py-2 px-4 text-sky-200 cursor-pointer sm:hover:text-sky-100 active:shadow-inner">
+    <p class="text-sm">Home</p>
+    <i class="fa-solid fa-chevron-left text-sky-500 sm:hover:text-sky-400"></i>
+  </div>
+</a>
+
+</div>
+<p id="notification"
+  class="px-6 py-4 bg-slate-700 text-slate-50 rounded-lg fixed bottom-8 md:bottom-16 right-8 z-40 ease-in-out duration-300 opacity-0 transform">
+  Email Copied!</p>
+<div class="py-24 bg-sky-800" >
+  <p class="text-center text-3xl uppercase font-bold font-epilogue text-sky-100">Find. Collaborate. Create.</p>
+</div>
+
+<!--SEARCH -->
+
+<div class=" flex justify-center bg-sky-50 ">
+  <form action="" method="get">
+    {% csrf_token %}
+    <div
+      class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 bg-white-400 px-4 py-4 shadow-lg -mt-12 bg-white rounded-md">
+
+
+      <div id="keywordSearch" class="bg-slate-50 border border-slate-400 py-4 px-2 font-roboto text-base rounded-lg ">
+
+        {% comment %} {% render_field myFilter.form.keywords class="outline-none text-slate-700 bg-transparent "
+        placeholder="Search
+        by keywords" %} {% endcomment %}
+
+        {{myFilter.form.keywords}}
+      </div>
+
+
+
+      <div class="bg-slate-50 border border-slate-400 py-4 px-2 font-roboto text-base rounded-lg ">
+        {{myFilter.form.category}}
+      </div>
+
+      <button class="bg-sky-500 text-lg text-white uppercase rounded-lg py-4 px-6" type="submit">Find</button>
+
+    </div>
+
+
+
+
+
+</div>
+
+</form>
+
+</div>
+
+<!-- GIGS SECTION -->
+<div class="bg-sky-50 pt-12 pb-20">
+  <div class="container flex flex-row items-start justify-center gap-12 flex-wrap ">
+    {% if gigs == "nodata" %}
+    <p>Sorry Nothing found</p>
+    {% else %}
+    {% for gig in gigs %}
+    <div class="card--wrapper">
+      <p class="card--title  ">
+        {{gig.title}}
+      </p>
+      <div class="">
+        {% if gig.category == "software development" %}
+        <p class="card--category text-sky-500 bg-sky-50 ">
+          {{gig.category}}
+        </p>
+        {% elif gig.category == "graphic design" %}
+        <p class="card--category text-teal-500 bg-teal-50 ">
+          {{gig.category}}
+        </p>
+        {% else %}
+        <p class="card--category ">
+          {{gig.category}}
+        </p>
+        {% endif %}
+
+
+      </div>
+
+      <p class="card--description ">
+        {{gig.description}}
+      </p>
+
+      <div class="flex flex-row justify-between items-center mt-auto">
+        <p class=" card--nickname">{{gig.nickname}}</p>
+        <div class=" cursor-pointer">
+          <span class="hidden">{{gig.email}}</span>
+          <p class="card--btn" onclick="copyContent(event)">Contact</p>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+
+  </div>
+</div>
+
+<!-- Contact us page -->
+<div class=" p-8 md:p-20" style="background-color: #082333;">
+  <div class="container bg-white flex flex-col md:flex-row justify-center items-center py-16 px-12 rounded-3xl gap-10">
+    <h2 class="h2-title class md:w-5/12">Have a question? Do not hesitate to shoot us email</h2>
+
+    <div class="flex flex-col justify-center items-start gap-8">
+      <p class="flex flex-row justify-center items-center gap-4 text-lg text-slate-700">
+        <img src="{% static 'images/icons/tick.png' %}" alt="">
+        as1036@duke.edu (Aziz Abdullaev)
+      </p>
+
+      <p class="flex flex-row justify-center items-center gap-4 text-lg text-slate-700">
+        <img src="{% static 'images/icons/tick.png' %}" alt="">
+        mbg34@duke.edu (Michael Getaneh)
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    const categories = document.getElementById('id_category');
+    const option = categories.children[0];
+    document.getElementById("id_keywords").placeholder = "Search by keywords"
+    console.dir(document.getElementById("id_keywords")
+    );
+    option.textContent = "All categories";
+  });
+</script>
+{% endblock content %}
