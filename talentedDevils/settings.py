@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "*hL2YQzUcc72GqdWnR8Xiep%nBjVtFgzZ&Ea&CQNV4TojNjFHtRAZrBAcy$W&b"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["www.crossroadss.co "]
 
 
 # Application definition
