@@ -8,7 +8,7 @@
 <div class="fixed top-0 left-0 w-full p-4 flex flex-row-reverse justify-between items-center bg-sky-800 ">
   <a href="{% url 'form-page' %}">
   <div class="btn btn-sec flex flex-row justify-center gap-2 items-center py-2 px-4 text-slate-900 cursor-pointer">
-    <p class="text-sm">submit your own gig</p>
+    <p class="text-sm">Sign Up</p>
     <i class="fa-solid fa-chevron-right text-slate-600"></i>
   </div>
 </a>
@@ -82,8 +82,24 @@
         <p class="card--category text-sky-500 bg-sky-50 ">
           {{gig.category}}
         </p>
-        {% elif gig.category == "graphic design" %}
+        {% elif gig.category == "Advocacy & Awareness" %}
+        <p class="card--category text-red-500 bg-red-50 ">
+          {{gig.category}}
+        </p>
+        {% elif gig.category == "Music / Songwriting" %}
         <p class="card--category text-teal-500 bg-teal-50 ">
+          {{gig.category}}
+        </p>
+        {% elif gig.category == "Shooting & Editing" %}
+        <p class="card--category text-purple-500 bg-purple-50 ">
+          {{gig.category}}
+        </p>
+        {% elif gig.category == "Recruiting & Test Prep" %}
+        <p class="card--category text-blue-500 bg-blue-50 ">
+          {{gig.category}}
+        </p>
+        {% elif gig.category == "data analysis" %}
+        <p class="card--category text-cyan-500 bg-cyan-50  ">
           {{gig.category}}
         </p>
         {% else %}
@@ -115,24 +131,7 @@
 </div>
 
 <!-- Contact us page -->
-<div class=" p-8 md:p-20" style="background-color: #082333;">
-  <div class="container bg-white flex flex-col md:flex-row justify-center items-center py-16 px-12 rounded-3xl gap-10">
-    <h2 class="h2-title class md:w-5/12">Have a question? Do not hesitate to shoot us email</h2>
-
-    <div class="flex flex-col justify-center items-start gap-8">
-      <p class="flex flex-row justify-center items-center gap-4 text-lg text-slate-700">
-        <img src="{% static 'images/icons/tick.png' %}" alt="">
-        as1036@duke.edu (Aziz Abdullaev)
-      </p>
-
-      <p class="flex flex-row justify-center items-center gap-4 text-lg text-slate-700">
-        <img src="{% static 'images/icons/tick.png' %}" alt="">
-        mbg34@duke.edu (Michael Getaneh)
-      </p>
-    </div>
-
-  </div>
-</div>
+{% include "gigs/contactComponent.html" %}
 
 
 

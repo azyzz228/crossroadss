@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "*hL2YQzUcc72GqdWnR8Xiep%nBjVtFgzZ&Ea&CQNV4TojNjFHtRAZrBAcy$W&b"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["www.crossroadss.co "]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -121,7 +121,7 @@ USE_TZ = True
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-STATIC_ROOT = BASE_DIR / "assets"
+# STATIC_ROOT = BASE_DIR / "assets"
 
 STATIC_URL = "static/"
 MEDIA_URL = "/media/"

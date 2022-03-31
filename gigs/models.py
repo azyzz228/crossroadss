@@ -19,12 +19,12 @@ class Gigs(models.Model):
 
     category_options = (
         ("data analysis", "data analysis"),
-        ("graphic design", "graphic design"),
-        ("music", "music"),
-        ("photography", "photography"),
+        ("Advocacy & Awareness", "Advocacy & Awareness"),
+        ("Music / Songwriting", "Music / Songwriting"),
+        ("Shooting & Editing", "Shooting & Editing"),
         ("sales & marketing", "sales & marketing"),
         ("software development", "software development"),
-        ("videography", "videography"),
+        ("Recruiting & Test Prep", "Recruiting & Test Prep"),
         ("Other", "Other"),
     )
     category = models.CharField(max_length=200, choices=category_options)

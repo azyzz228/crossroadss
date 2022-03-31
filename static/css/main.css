@@ -847,10 +847,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 6rem;
 }
 
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
 .block {
   display: block;
 }
@@ -861,6 +857,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .inline-flex {
   display: inline-flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -1198,6 +1198,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(240 253 244 / var(--tw-bg-opacity));
 }
 
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
+.bg-purple-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 245 255 / var(--tw-bg-opacity));
+}
+
+.bg-blue-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 254 255 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1336,6 +1356,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
 }
 
 .text-center {
@@ -1531,6 +1559,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-green-800 {
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.text-purple-500 {
+  --tw-text-opacity: 1;
+  color: rgb(168 85 247 / var(--tw-text-opacity));
+}
+
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+
+.text-cyan-500 {
+  --tw-text-opacity: 1;
+  color: rgb(6 182 212 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1774,9 +1822,19 @@ Ensure the default browser behavior of the `hidden` attribute.
     flex-direction: row;
   }
 
+  .lg\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
   .lg\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:flex-nowrap {
+    flex-wrap: nowrap;
   }
 }
 

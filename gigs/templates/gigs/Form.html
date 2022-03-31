@@ -1,134 +1,139 @@
 {% extends 'gigs/base.html' %}
 {% load static %}
-{% block title %}Create your gig.{% endblock title %}
+{% block title %}Join the community{% endblock title %}
 {% block form %}
-<div class=" container flex flex-col-reverse lg:flex-row justify-center">
-    <!--LEFT COLUMN-->
-    <div class="py-24 LEFT--COLUMN px-6 lg:px-12 max-w-2xl bg-white flex-1">
-        <div class="bg-sky-50 w-52 h-16 transform rotate-[135deg] absolute top-0 -left-24"></div>
-        <h1 class="font-bold text-3xl md:text-4xl text-slate-800 mb-3">Submit your gig here</h1>
-        <p class="font-roboto text-lg text-slate-700 mb-8">Please include true information about yourself</p>
+<div class="bg-sky-50">
+    <div class=" container flex flex-col-reverse lg:flex-row justify-center">
+        <!--LEFT COLUMN-->
+        <div class="py-24 LEFT--COLUMN px-6 lg:px-12 max-w-2xl bg-white flex-1">
+            <div class="bg-sky-50 w-52 h-16 transform rotate-[135deg] absolute top-0 -left-24"></div>
+            <h1 class="font-bold text-3xl md:text-4xl text-slate-800 mb-3">Fill the form and join us</h1>
+            <p class="font-roboto text-lg text-slate-700 mb-8">Please fill out this form</p>
 
-        <form method="POST" action="" onsubmit="return validate()">
-            {% csrf_token %}
-            <div class="flex flex-col  space-y-7">
-                <div class="flex flex-row justify-between flex-wrap ">
-                    <!--Nickname INPUT FIELD-->
-                    <div class=" flex flex-col min-w-1/2 ">
+            <form method="POST" action="" onsubmit="return validate()">
+                {% csrf_token %}
+                <div class="flex flex-col  space-y-7">
+                    <div class="flex flex-row justify-between flex-wrap ">
+                        <!--Nickname INPUT FIELD-->
+                        <div class=" flex flex-col min-w-1/2 ">
+                            <p class="flex flex-row items-end space-x-1 mb-1">
+                                <span class="text-lg text-slate-800">nickname </span>
+                                <span class="text-base text-slate-400 " id="username-count"></span>
+                            </p>
+
+                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
+                                <input id="username--input" name="nickname" type="text"
+                                    class="outline-none text-slate-700 bg-transparent w-auto" maxlength="15"
+                                    placeholder="John the creator..." required />
+                            </div>
+                        </div>
+
+                        <!--EMAIL INPUT FIELD-->
+                        <div class=" flex flex-col w-auto">
+                            <p class="flex flex-row items-end space-x-1 mb-1">
+                                <span class="text-lg text-slate-800">duke email</span>
+                                <span class="text-base text-slate-500 italic">(Ex. as1036@duke.edu)</span>
+                            </p>
+                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg "
+                                id="email--wrapper">
+                                <input type="text" name="email"
+                                    class="outline-none text-slate-700 bg-transparent w-auto" maxlength="35"
+                                    placeholder="as1036@duke.edu" required id="email--input">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex flex-row  ">
+                        <!--TITLE INPUT FIELD-->
+                        <div class=" flex flex-col w-full">
+                            <p class="flex flex-row items-end space-x-1">
+                                <span class="text-lg text-slate-800">Title </span>
+                                <span class="text-base text-slate-400" id="title--count"></span>
+                            </p>
+                            <p class="text-base text-slate-500 italic mb-2">
+                                Ex.: Frontend developer, UX/UI designer, environmentalist
+                            </p>
+
+                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
+                                <input id="title--input" name="title" type="text"
+                                    class="outline-none text-slate-700 bg-transparent w-full" maxlength="25"
+                                    placeholder="Junior frontend developer" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex flex-row  ">
+                        <!--DESCRIPTION INPUT FIELD-->
+                        <div class=" flex flex-col w-full">
+                            <p class="flex flex-row items-end space-x-1">
+                                <span class="text-lg text-slate-800">description </span>
+                                <span class="text-base text-slate-400" id="description--count"></span>
+                            </p>
+                            <p class="text-base text-slate-500 italic  mb-2">
+
+                                Tell about what you bring on the table. What are your interests. What is something you
+                                want collaborate on with others. Feel free to drop the links to your portfolio.
+                            </p>
+
+                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
+                                <textarea id="description--input" name="description"
+                                    class="outline-none text-slate-700 bg-transparent w-full resize-none"
+                                    maxlength="200" rows="5"
+                                    placeholder="I can create awesome websites with cool design using HTML and CSS. On top of that, I am awesome UX UI designer who uses figma Here is a link to my dribbble: xyz.com/zxc"
+                                    required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col w-full">
                         <p class="flex flex-row items-end space-x-1 mb-1">
-                            <span class="text-lg text-slate-800">nickname </span>
-                            <span class="text-base text-slate-400 " id="username-count"></span>
+                            <span class="text-lg text-slate-800">Select category </span>
                         </p>
 
                         <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                            <input id="username--input" name="nickname" type="text"
-                                class="outline-none text-slate-700 bg-transparent w-auto" maxlength="15"
-                                placeholder="John the creator..." required />
+                            <select id="category--input" name="category"
+                                class="outline-none text-slate-700 bg-transparent w-full resize-none" required>
+                                <option value="software development" selected>software development</option>
+                                <option value="data analysis">data analysis</option>
+                                <option value="Advocacy & Awareness">Advocacy & Awareness</option>
+                                <option value="Music / Songwriting">Music / Songwriting</option>
+                                <option value="sales & marketing">sales & marketing</option>
+
+                                <option value="Recruiting & Test Prep">Recruiting & Test Prep</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+
                         </div>
                     </div>
 
-                    <!--EMAIL INPUT FIELD-->
-                    <div class=" flex flex-col w-auto">
-                        <p class="flex flex-row items-end space-x-1 mb-1">
-                            <span class="text-lg text-slate-800">duke email</span>
-                            <span class="text-base text-slate-500 italic">(Ex. as1036@duke.edu)</span>
-                        </p>
-                        <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg "
-                            id="email--wrapper">
-                            <input type="text" name="email" class="outline-none text-slate-700 bg-transparent w-auto"
-                                maxlength="35" placeholder="as1036@duke.edu" required id="email--input">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="flex flex-row  ">
-                    <!--TITLE INPUT FIELD-->
-                    <div class=" flex flex-col w-full">
-                        <p class="flex flex-row items-end space-x-1">
-                            <span class="text-lg text-slate-800">Talent title </span>
-                            <span class="text-base text-slate-400" id="title--count"></span>
-                        </p>
-                        <p class="text-base text-slate-500 italic mb-2">
-                            Ex.: Junior Frontend developer, Junior UX/UI designer, songwriter, DJ
-                        </p>
-
-                        <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                            <input id="title--input" name="title" type="text"
-                                class="outline-none text-slate-700 bg-transparent w-full" maxlength="25"
-                                placeholder="Junior frontend developer" required>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="flex flex-row  ">
-                    <!--DESCRIPTION INPUT FIELD-->
-                    <div class=" flex flex-col w-full">
-                        <p class="flex flex-row items-end space-x-1">
-                            <span class="text-lg text-slate-800">description </span>
-                            <span class="text-base text-slate-400" id="description--count"></span>
-                        </p>
-                        <p class="text-base text-slate-500 italic  mb-2">
-                            Give more detailed description of what you can do. Inlcude links to your portfolio if you
-                            have one.
-                        </p>
-
-                        <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                            <textarea id="description--input" name="description"
-                                class="outline-none text-slate-700 bg-transparent w-full resize-none" maxlength="200"
-                                rows="5" placeholder="I can create awesome websites with cool design using HTML and CSS. On top of that, I am awesome UX UI designer who uses figma Here is a link to my dribbble: xyz.com/zxc"
-                                required></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col w-full">
-                    <p class="flex flex-row items-end space-x-1 mb-1">
-                        <span class="text-lg text-slate-800">Select category </span>
+                    <p id="error" class="hidden py-4 px-3  tracking-wide text-lg text-red-900 font-bold bg-red-100">
+                        Please enter valid duke email
                     </p>
 
-                    <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                        <select id="category--input" name="category"
-                            class="outline-none text-slate-700 bg-transparent w-full resize-none" required>
-                            <option value="software development" selected>software development</option>
-                            <option value="data analysis">data analysis</option>
-                            <option value="graphic design">graphic design</option>
-                            <option value="music">music</option>
-                            <option value="sales & marketing">sales & marketing</option>
-
-                            <option value="videography">videography</option>
-                            <option value="Other">Other</option>
-                        </select>
-
-
-                    </div>
+                    <button type="submit"
+                        class=" text-lg py-4 text-white bg-sky-500 hover:bg-sky-700 active:bg-sky-900 active:shadow-inner  rounded-lg uppercase font-roboto">
+                        submit
+                    </button>
                 </div>
+            </form>
 
-                <p id="error" class="hidden py-4 px-3  tracking-wide text-lg text-red-900 font-bold bg-red-100">
-                    Please enter valid duke email
-                </p>
-
-                <button type="submit"
-                    class=" text-lg py-4 text-white bg-sky-500 hover:bg-sky-700 active:bg-sky-900 active:shadow-inner  rounded-lg uppercase font-roboto">
-                    submit
-                </button>
-            </div>
-        </form>
-
-        <p class="text-center  font-roboto text-lg text-slate-600  mt-10">If you have any question, please do not
-            hesitate to shoot an email to as1036@duke.edu or (929) 438-9427</p>
-    </div>
+            <p class="text-center  font-roboto text-lg text-slate-600  mt-10">If you have any question, please do not
+                hesitate to shoot an email to as1036@duke.edu or mbg34@duke.edu</p>
+        </div>
 
 
 
-    <!--RIGHT COLUMN-->
-    <div class="flex-1 bg-sky-50 RIGHT--COLUMN flex justify-center items-center flex-col py-12 px-8 md:py-24 md:px-12">
-        <img src={% static 'images/form-illustration.png' %} alt="">
-        <p class="text-center text-3xl text-sky-900 font-bold font-epilogue mt-12">
-            FIND. <br />COLLABORATE.<br /> CREATE.
-        </p>
+        <!--RIGHT COLUMN-->
+        <div
+            class="flex-1 bg-sky-50 RIGHT--COLUMN flex justify-center items-center flex-col py-12 px-8 md:py-24 md:px-12">
+            <img src={% static 'images/form-illustration.png' %} alt="">
+            <p class="text-center text-3xl text-sky-900 font-bold font-epilogue mt-12">
+                FIND. <br />COLLABORATE.<br /> CREATE.
+            </p>
+        </div>
     </div>
 </div>
-
 {% endblock form %}
