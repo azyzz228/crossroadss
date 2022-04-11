@@ -1,6 +1,6 @@
 {% extends 'gigs/base.html' %}
 {% load static %}
-{% block title %}Homepage.{% endblock title %}
+{% block title %}Homepage{% endblock title %}
 
 {% block content %}
 {% include "gigs/Header.html" %}
@@ -19,7 +19,7 @@
                 Duke. Join the community by filling a simple form. </p>
             <div class="flex flex-row justify-start items-center gap-6">
                 <a href="{% url 'gigs-page' %}" class="btn btn-primary">Find a collaborator</a>
-                <a href="{% url 'form-page' %}" class="btn btn-sec">Discover projects</a>
+                <a href="{% url 'listings-page' %}" class="btn btn-sec">Discover projects</a>
             </div>
         </div>
 
