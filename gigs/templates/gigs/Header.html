@@ -1,0 +1,23 @@
+<div class="bg-white shadow-lg">
+    <p id="notification"
+  class="px-6 py-4 bg-slate-700 text-slate-50 rounded-lg fixed bottom-8 md:bottom-16 right-8 z-40 ease-in-out duration-300 opacity-0 transform">
+  Email Copied!</p>
+
+    <nav class="container px-4 md:px-0 flex flex-row items-center justify-between py-5  ">
+        <div class="flex flex-row items-center justify-center">
+            <a href="{% url 'home' %}">
+            <p class="logo font-yeseva text-2xl text-sky-800 mr-16 cursor-pointer">CROSSROADSS</p>
+        </a>
+            <div class="nav-links hidden md:flex flex-row justify-center items-center">
+            <a href="{% url 'gigs-page' %}">
+                <p class="mr-12 font-opensans text-lg text-slate-400 cursor-pointer hover:text-slate-700">Collaborators
+                </p>
+            </a>
+            <a href="{% url 'listings-page' %}">
+                <p class="font-opensans text-lg text-slate-400 cursor-pointer hover:text-slate-700">Listings</p>
+            </a>
+            </div>
+        </div>
+        <a href="{% url 'form-page' %}" class="btn btn-sec px-6 py-2">Sign up</a>
+    </nav>
+</div>

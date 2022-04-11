@@ -17,3 +17,9 @@ class GigsFilter(django_filters.FilterSet):
     class Meta:
         model = Gigs
         fields = ["description", "category"]
+
+
+class ListingsFilter(django_filters.FilterSet):
+    class Meta:
+        model = Listing
+        fields = ["category"]

@@ -1,6 +1,13 @@
 {% extends 'gigs/base.html' %}
 {% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="bg-neutral-100 py-5 px-3 font-roboto rounded-lg text-base ">
+        {{form.category}}
+    </div>
+ 
+    <button type="submit">Submit</button>
+</form>
 
-{{form.as_p}}
 
 {% endblock content %}

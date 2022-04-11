@@ -22,5 +22,8 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("complete-form-page/", views.formPage, name="form-page"),
     path("find-collaborator/", views.gigsPage, name="gigs-page"),
+    path("listings/", views.listingsPage, name="listings-page"),
+    path("listing-form/", views.ListingForm, name="listing-form"),
     path("success/", views.success, name="success"),
+    path("test/", views.test, name="test"),
 ]

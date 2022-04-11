@@ -1,8 +1,8 @@
 from unicodedata import category
 from django.shortcuts import render
-from .forms import gigsForm
-from .models import Gigs
-from .filters import GigsFilter
+from .forms import gigsForm, listingsForm
+from .models import Categories, Gigs, Listing
+from .filters import GigsFilter, ListingsFilter
 
 # Create your views here.
 def home(request):
@@ -16,23 +16,14 @@ def home(request):
 
 
 def formPage(request):
-    context = {"form": gigsForm}
+    form = gigsForm(request.POST or None)
     if request.method == "POST":
-        newGig = Gigs()
-        # GET values from the from
-        nickname = request.POST.get("nickname")
-        email = request.POST.get("email")
-        title = request.POST.get("title")
-        description = request.POST.get("description")
-        category = request.POST.get("category")
-        # Create new object and push it
-        newGig.nickname = nickname
-        newGig.email = email
-        newGig.title = title
-        newGig.description = description
-        newGig.category = category
-        newGig.save()
-        return render(request, "gigs/Success.html")
+        if form.is_valid():
+            print(request.POST)
+            print(form)
+            form.save()
+            return render(request, "gigs/Success.html")
+    context = {"form": form}
 
     return render(request, "gigs/Form.html", context)
 
@@ -52,3 +43,38 @@ def gigsPage(request):
         context = {"gigs": "nodata", "myFilter": myFilter}
 
     return render(request, "gigs/gigsPage.html", context)
+
+
+def listingsPage(request):
+    list_of_listings = Listing.objects.filter(approved="yes", is_deleted="no")
+    myFilter = ListingsFilter(request.GET, queryset=list_of_listings)
+    list_of_listings = myFilter.qs
+
+    if list_of_listings.exists():
+        context = {"listings": list_of_listings, "myFilter": myFilter}
+    else:
+        context = {"listings": "nodata", "myFilter": myFilter}
+
+    return render(request, "gigs/listings.html", context)
+
+
+def ListingForm(request):
+    form = listingsForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            print(request.POST)
+            print(form)
+            form.save()
+            return render(request, "gigs/Success.html")
+    context = {"form": form}
+    return render(request, "gigs/ListingForm.html", context)
+
+
+def test(request):
+    form = listingsForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+
+    context = {"form": form}
+
+    return render(request, "gigs/test.html", context)

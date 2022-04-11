@@ -1,0 +1,122 @@
+{% extends 'gigs/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include "gigs/Header.html" %}
+
+<div class="bg-neutral-50 py-24">
+    <h1 class="text-center text-4xl font-bold font-manrope text-slate-800 mb-4">Post a listing</h1>
+    <p class="text-center text-slate-700 font-roboto">Here you can find talented and skilled students from Duke. Join
+        <br> the
+        community
+        by filling a
+        simple form.
+    </p>
+
+
+    <div class=" mt-12 container flex flex-row justify-center relative ">
+        <img src="{% static 'images/polkadots.png' %}" class="absolute top-0 left-8 block" alt="">
+        <img src="{% static 'images/polkadots.png' %}" class="absolute  bottom-0 right-8 block" alt="">
+        <div class="max-w-2xl w-[672px]   relative">
+
+            <img src="{% static 'images/blobTop.png' %}" class="absolute hidden lg:block -top-16 -right-24 z-0" alt="">
+            <img src="{% static 'images/BlobBottom.png' %}" class="absolute hidden lg:block -bottom-16 -left-24 z-0" alt="">
+            <form action="" method="post">
+                {% csrf_token %}
+               
+            <div class="z-10 relative w-full bg-white px-8 sm:px-14 py-11 rounded-lg shadow-lg">
+                <h3 class="text-lg font-bold text-sky-900 mb-5 text-center">The new way to find collaborators</h3>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center mb-6">
+                    <div class=" flex flex-col w-full sm:w-5/12">
+                        <p class="flex flex-row items-end space-x-1">
+                            <span class="text-base text-slate-800">Title </span>
+                            <span class="text-base text-slate-400" id="title--count"></span>
+                        </p>
+                        <div class="bg-neutral-100 py-5 px-3 font-roboto text-base rounded-lg ">
+                            {% comment %} <input id="title--input" name="title" type="text"
+                                class="outline-none text-slate-700 bg-transparent w-full" maxlength="25"
+                                placeholder="Junior frontend developer" required>
+                             {% endcomment %}
+                            {{form.title}}
+                        </div>
+                    </div>
+                    <div class="w-1/12"></div>
+
+                    <div class=" flex flex-col w-full sm:w-6/12">
+                        <p class="flex flex-row items-end space-x-1 mb-1">
+                            <span class="text-base text-slate-800">Contact email</span>
+                            <span class="text-xs text-slate-400 italic ">(Ex. as1036@duke.edu)</span>
+                        </p>
+                        <div class="bg-neutral-100 py-5 px-3 font-roboto text-base rounded-lg border border-transparent" id="email--wrapper">
+                            {% comment %} <input type="text" name="email" class="outline-none text-slate-700 bg-transparent w-auto"
+                                maxlength="35" placeholder="as1036@duke.edu" required id="email--input"> {% endcomment %}
+                            {{form.email}}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex flex-col w-full mb-6">
+                    <p class="flex flex-row items-end space-x-1 mb-1">
+                        <span class="text-base text-slate-800">Select category </span>
+                    </p>
+
+                    <div class="bg-neutral-100 py-5 px-3 font-roboto rounded-lg text-base ">
+                        
+                        {{form.category}}
+{% comment %}                         
+                        <select id="category--input" name="category"
+                            class="outline-none text-slate-700 bg-transparent w-full resize-none" required>
+                            <option value="software development" selected>software development</option>
+                            <option value="data analysis">data analysis</option>
+                            <option value="Advocacy & Awareness">Advocacy & Awareness</option>
+                            <option value="Music / Songwriting">Music / Songwriting</option>
+                            <option value="sales & marketing">sales & marketing</option>
+
+                            <option value="Recruiting & Test Prep">Recruiting & Test Prep</option>
+                            <option value="Other">Other</option>
+                        </select> {% endcomment %}
+
+
+                    </div>
+                </div>
+
+                <div class=" flex flex-col w-full mb-6">
+                    <p class="flex flex-row items-end space-x-1">
+                        <span class="text-base text-slate-800">description </span>
+                        <span class="text-base text-slate-400" id="description--count"></span>
+                    </p>
+                    <p class="text-sm text-slate-500 italic  mb-2">
+
+                        Tell about what you bring on the table. What are your interests. What is something you
+                        want collaborate on with others. Feel free to drop the links to your portfolio.
+                    </p>
+
+                    <div class="bg-neutral-100 py-5 px-3 font-roboto rounded-lg text-base">
+                        {% comment %} <textarea id="description--input" name="description"
+                            class="outline-none text-slate-700 bg-transparent w-full resize-none" maxlength="450"
+                            rows="8"
+                            placeholder="I can create awesome websites with cool design using HTML and CSS. On top of that, I am awesome UX UI designer who uses figma Here is a link to my dribbble: xyz.com/zxc"
+                            required></textarea> {% endcomment %}
+
+                            {{form.description}}
+                    </div>
+                </div>
+                <div class="flex flex-row justify-end w-full">
+                    <button type="submit"
+                        class="text-lg py-4 px-9 text-white bg-sky-800 hover:bg-sky-900 active:shadow-inner  rounded-lg uppercase font-roboto">
+                        submit
+                    </button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% include "gigs/contactComponent.html" %}
+
+{% endblock content %}

@@ -18,13 +18,13 @@
                         <div class=" flex flex-col min-w-1/2 ">
                             <p class="flex flex-row items-end space-x-1 mb-1">
                                 <span class="text-lg text-slate-800">nickname </span>
-                                <span class="text-base text-slate-400 " id="username-count"></span>
                             </p>
 
-                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                                <input id="username--input" name="nickname" type="text"
+                            <div class="bg-neutral-100 py-5 px-3 font-roboto text-base rounded-lg ">
+                                {% comment %} <input id="username--input" name="nickname" type="text"
                                     class="outline-none text-slate-700 bg-transparent w-auto" maxlength="15"
-                                    placeholder="John the creator..." required />
+                                    placeholder="John the creator..." required /> {% endcomment %}
+                                    {{form.nickname}}
                             </div>
                         </div>
 
@@ -34,11 +34,12 @@
                                 <span class="text-lg text-slate-800">duke email</span>
                                 <span class="text-base text-slate-500 italic">(Ex. as1036@duke.edu)</span>
                             </p>
-                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg "
+                            <div class="bg-neutral-100 py-5 px-3 font-roboto text-base rounded-lg"
                                 id="email--wrapper">
-                                <input type="text" name="email"
+                                <!-- <input type="text" name="email"
                                     class="outline-none text-slate-700 bg-transparent w-auto" maxlength="35"
-                                    placeholder="as1036@duke.edu" required id="email--input">
+                                    placeholder="as1036@duke.edu" required id="email--input"> -->
+                                    {{form.email}}
                             </div>
                         </div>
                     </div>
@@ -55,10 +56,11 @@
                                 Ex.: Frontend developer, UX/UI designer, environmentalist
                             </p>
 
-                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                                <input id="title--input" name="title" type="text"
+                            <div class="bg-neutral-100 py-5 px-3 font-roboto text-base rounded-lg ">
+                                {% comment %} <input id="title--input" name="title" type="text"
                                     class="outline-none text-slate-700 bg-transparent w-full" maxlength="25"
-                                    placeholder="Junior frontend developer" required>
+                                    placeholder="Junior frontend developer" required> {% endcomment %}
+                                    {{form.title}}
                             </div>
                         </div>
                     </div>
@@ -71,18 +73,19 @@
                                 <span class="text-lg text-slate-800">description </span>
                                 <span class="text-base text-slate-400" id="description--count"></span>
                             </p>
-                            <p class="text-base text-slate-500 italic  mb-2">
+                            <p class="text-xs text-slate-500 italic  mb-2">
 
                                 Tell about what you bring on the table. What are your interests. What is something you
                                 want collaborate on with others. Feel free to drop the links to your portfolio.
                             </p>
 
-                            <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                                <textarea id="description--input" name="description"
+                            <div class="bg-neutral-100 py-5 px-3 font-roboto text-base rounded-lg ">
+                                {% comment %} <textarea id="description--input" name="description"
                                     class="outline-none text-slate-700 bg-transparent w-full resize-none"
                                     maxlength="200" rows="5"
                                     placeholder="I can create awesome websites with cool design using HTML and CSS. On top of that, I am awesome UX UI designer who uses figma Here is a link to my dribbble: xyz.com/zxc"
-                                    required></textarea>
+                                    required></textarea> {% endcomment %}
+                                    {{form.description}}
                             </div>
                         </div>
                     </div>
@@ -92,8 +95,8 @@
                             <span class="text-lg text-slate-800">Select category </span>
                         </p>
 
-                        <div class="bg-slate-50 border border-slate-400 py-5 px-3 font-roboto text-lg rounded-lg ">
-                            <select id="category--input" name="category"
+                        <div class="bg-neutral-100 py-5 px-3 font-roboto text-base rounded-lg ">
+                            {% comment %} <select id="category--input" name="category"
                                 class="outline-none text-slate-700 bg-transparent w-full resize-none" required>
                                 <option value="software development" selected>software development</option>
                                 <option value="data analysis">data analysis</option>
@@ -103,8 +106,8 @@
 
                                 <option value="Recruiting & Test Prep">Recruiting & Test Prep</option>
                                 <option value="Other">Other</option>
-                            </select>
-
+                            </select> {% endcomment %}
+                            {{form.category}}
 
                         </div>
                     </div>

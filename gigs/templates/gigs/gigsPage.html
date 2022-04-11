@@ -4,26 +4,8 @@
 {% block title %}Find a talent here.{% endblock title %}
 {% block content %}
 
+{% include "gigs/Header.html" %}
 
-<div class="fixed top-0 left-0 w-full p-4 flex flex-row-reverse justify-between items-center bg-sky-800 ">
-  <a href="{% url 'form-page' %}">
-  <div class="btn btn-sec flex flex-row justify-center gap-2 items-center py-2 px-4 text-slate-900 cursor-pointer">
-    <p class="text-sm">Sign Up</p>
-    <i class="fa-solid fa-chevron-right text-slate-600"></i>
-  </div>
-</a>
-
-<a href="{% url 'home' %}">
-  <div class="flex flex-row-reverse justify-center gap-2 items-center py-2 px-4 text-sky-200 cursor-pointer sm:hover:text-sky-100 active:shadow-inner">
-    <p class="text-sm">Home</p>
-    <i class="fa-solid fa-chevron-left text-sky-500 sm:hover:text-sky-400"></i>
-  </div>
-</a>
-
-</div>
-<p id="notification"
-  class="px-6 py-4 bg-slate-700 text-slate-50 rounded-lg fixed bottom-8 md:bottom-16 right-8 z-40 ease-in-out duration-300 opacity-0 transform">
-  Email Copied!</p>
 <div class="py-24 bg-sky-800" >
   <p class="text-center text-3xl uppercase font-bold font-epilogue text-sky-100">Find. Collaborate. Create.</p>
 </div>
@@ -38,20 +20,13 @@
 
 
       <div id="keywordSearch" class="bg-slate-50 border border-slate-400 py-4 px-2 font-roboto text-base rounded-lg ">
-
-        {% comment %} {% render_field myFilter.form.keywords class="outline-none text-slate-700 bg-transparent "
-        placeholder="Search
-        by keywords" %} {% endcomment %}
-
         {{myFilter.form.keywords}}
       </div>
-
-
 
       <div class="bg-slate-50 border border-slate-400 py-4 px-2 font-roboto text-base rounded-lg ">
         {{myFilter.form.category}}
       </div>
-
+      
       <button class="bg-sky-500 text-lg text-white uppercase rounded-lg py-4 px-6" type="submit">Find</button>
 
     </div>
